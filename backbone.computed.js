@@ -28,8 +28,6 @@
         }).
         join(' ');
       this.compute = compute;
-
-      _.bindAll(this)
     },
 
     handlerFor: function(model) {
