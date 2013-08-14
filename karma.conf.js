@@ -14,6 +14,8 @@ files = [
   'lib/jquery.js',
   'lib/backbone.js',
   'lib/chai.js',
+  'lib/sinon.js',
+  'lib/sinon-chai.js',
   'backbone.computed.js',
   'test/tests.js',
   'test/**/*.test.js'

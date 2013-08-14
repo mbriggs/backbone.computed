@@ -15,7 +15,7 @@
       model.on(property.events, perform);
       perform(); // set initial value
     });
-  }
+  };
 
   var ComputedProperty = Class.extend({
     initialize: function(definition, compute) {
@@ -37,7 +37,8 @@
 
       return function() {
         var vals = multiGet(model, property.dependancies);
-        var computed = property.compute.apply(model, vals);
+        var compute = _.isString(property.compute) ? model[property.compute] : property.compute;
+        var computed = compute.apply(model, vals);
 
         model.set(property.name, computed);
       }

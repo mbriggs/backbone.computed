@@ -1,0 +1,12 @@
+{
+  "name": "backbone.computed",
+  "version": "0.0.1",
+  "main": "backbone.computed.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

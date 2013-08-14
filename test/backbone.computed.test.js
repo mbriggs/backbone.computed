@@ -6,12 +6,16 @@ describe("Backbone fancy model", function(){
     compute: {
       'foo <- bar bin': function(bar, bin){
         return bar + bin;
-      }
+      },
+
+      'named <- dep': 'bound'
     },
 
     initialize: function(){
       this.computed();
-    }
+    },
+
+    bound: function(){}
   });
 
 
@@ -32,4 +36,13 @@ describe("Backbone fancy model", function(){
     model.set({bin: 10});
     expect(model.get('foo')).to.eq(11);
   });
+
+  it("binds to local methods", sinon.test(function(){
+    sinon.spy(model, 'bound');
+
+    model.set('dep', 20);
+
+    expect(model.bound).to.have.been.calledOn(model);
+    expect(model.bound).to.have.been.calledWith(20);
+  }));
 });
